@@ -1,16 +1,16 @@
 <script>
-  // Import Swiper Vue.js components
+  
   import { Swiper, SwiperSlide } from 'swiper/vue';
 
-  // Import Swiper styles
+  
   import 'swiper/scss';
 
   import 'swiper/scss/navigation';
 
-  import './style.scss';
+  import 'swiper/scss/pagination';
 
-  // import required modules
-  import { Navigation } from 'swiper/modules';
+  
+  import { Pagination } from 'swiper/modules';
 
   export default {
     components: {
@@ -19,7 +19,7 @@
     },
     setup() {
       return {
-        modules: [Navigation],
+        modules: [Pagination],
       };
     },
   };
@@ -29,6 +29,7 @@
 
 
 <template>
+
   <section class="hero">
     <div id="navbar">
       <a href="#" class="logo">MONTE </a>
@@ -120,7 +121,15 @@
     <div class="cont_imoveis">
       <h2 class="til_imo">Imóveis</h2>
       <div class="carousel">
-      <swiper :navigation="true" :modules="modules" class="mySwiper">
+    <swiper
+      :slidesPerView="3"
+      :spaceBetween="30"
+      :pagination="{
+        clickable: true,
+      }"
+      :modules="modules"
+      class="mySwiper"
+    >
     <swiper-slide><img src="/predio1.jpg" alt="Imagem 1"></swiper-slide>
     <swiper-slide><img src="/predio2.jpg" alt="Imagem 2"></swiper-slide><swiper-slide><img src="/predio6.jpg" alt="Imagem 6"></swiper-slide>
     <swiper-slide><img src="/predio3.jpg" alt="Imagem 3"></swiper-slide><swiper-slide><img src="/predio7.jpg" alt="Imagem 7"></swiper-slide>
@@ -148,16 +157,20 @@
       <h2 class="til_contato">CONTATO</h2>
       <p class="text">Preencha o formulário para que nossa equipe Possa entrar em contato</p>
       <div class="cadastro">
-        <input type="caixa" class="nome">
-        <input type="caixa" class="email">
-        <input type="caixa" class="numero de celular">
-        <input type="caixa" class="sua mensagem">
-        <button>
-          <p>enviar</p>
+        <input type="caixa" placeholder="SEU NOME" class="nome">
+        <input type="caixa" placeholder="SEU EMAIL" class="email">
+        <input type="caixa" placeholder="NUMERO DE CELULAR" class="numero">
+        <input type="caixa" placeholder="DIGITE SUA MENSAGEM" class="mensagem">
+        <button class="enviar">
+          <p>ENVIAR</p>
         </button>
       </div>
     </div>
 </main>
+
+<div class="container_final">
+    <p class="final">Esse site foite feita para fins de estudo.</p>
+</div>
 </template>
 
 <style src="/src/scss/style.scss" lang="scss" />
